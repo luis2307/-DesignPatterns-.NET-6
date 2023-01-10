@@ -1,0 +1,36 @@
+﻿@using DesignPatternsAPP.Models.ViewModels
+@model IEnumerable<ClientViewModel>
+
+
+@{
+    ViewData["Title"] = "Clients";
+}
+
+<div class="row">
+    <div class="col-12 ">
+        <a class="btn btn-primary" href="~/Client/Add">Nuevo cliente</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Country</th>
+                <th>OP</th>
+            </tr>
+            @foreach (var client in Model)
+            {
+                <tr>
+                    <td>@client.Name</td>
+                    <td>@client.Email</td>
+                    <td>@client.Country</td>
+                    <td>
+                        @Html.ActionLink("Delete?","Delete",new  { ClientId= @client.ClientId })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

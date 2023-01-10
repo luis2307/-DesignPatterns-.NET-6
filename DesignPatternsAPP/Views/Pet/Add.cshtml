@@ -1,0 +1,19 @@
+﻿@using DesignPatternsAPP.Models.ViewModels
+@model FormPetViewModel
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+
+<form asp-controller="Pet" asp-action="Add" method="post">
+
+    <div class="form-group">
+        <label asp-for="PetName"></label>
+        <input class="form-control" asp-for="PetName" />
+        <span asp-validation-for="PetName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit">Guardar</button>
+    </div>
+</form>

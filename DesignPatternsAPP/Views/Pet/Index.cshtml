@@ -1,0 +1,32 @@
+﻿@using DesignPatternsAPP.Models.ViewModels
+@model IEnumerable<PetViewModel>
+
+@{
+    ViewData["Title"] = "Pets";
+}
+
+<div class="row">
+    <div class="col-12 ">
+        <a class="btn btn-primary" href="~/Pet/Add">Nueva Mascota</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <tr>
+                <th>Name</th> 
+                <th>OP</th>
+            </tr>
+            @foreach (var pet in Model)
+            {
+                <tr>
+                    <td>@pet.PetName</td>
+                
+                    <td>
+                        @Html.ActionLink("Delete?","Delete",new  { PetId= @pet.PetId })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
